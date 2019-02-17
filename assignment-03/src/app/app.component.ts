@@ -21,8 +21,11 @@ export class AppComponent {
     'quantity': 109283
   }];
 
+  lastAdded = '';
+
   addValue(val) {
     console.log('Parent component', val);
+    this.lastAdded = val.name;
     this.product_arr.push(val);
   }
 }

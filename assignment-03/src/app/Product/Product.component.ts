@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit {
 
   @Output() onDataEntry: EventEmitter<any> = new EventEmitter<any>();
   @Input() product_arr: Array<any>;
+  @Input() lastAdded: String;
   // product_arr = [];
   productForm: FormGroup;
 
