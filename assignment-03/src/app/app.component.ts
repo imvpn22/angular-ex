@@ -1,5 +1,4 @@
 import { Component, Directive, ViewChild } from '@angular/core';
-
 import { ProductComponent } from './Product/Product.component';
 
 @Component({
@@ -22,7 +21,6 @@ export class AppComponent {
   }];
 
   addValue(val) {
-    console.log('Parent component', val);
     this.product_arr.push(val);
   }
 }

@@ -28,9 +28,7 @@ export class ProductComponent implements OnInit {
   }
 
   addProduct(productForm) {
-    console.log(productForm.value);
     this.onDataEntry.emit(productForm.value);
-    // this.product_arr.push(productForm.value)
     this.productForm.reset();
 
   }
