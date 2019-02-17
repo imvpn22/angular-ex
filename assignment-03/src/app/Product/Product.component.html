@@ -1,0 +1,34 @@
+<div class="container">
+  <h3>Demonstration of Built-in directives and data binding</h3>
+  <hr><br>
+  <h5>Product list</h5>
+  <table>
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Quantity</th>
+    </tr>
+    <tr *ngFor="let data1 of product_arr; let indx = index">
+      <td>{{indx+1}}</td>
+      <td>{{data1.name}}</td>
+      <td>{{data1.quantity}}</td>
+    </tr>
+  </table>
+
+  <br><hr>
+
+  <h5>Add new product</h5>
+  <form [formGroup]="productForm">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" matInput formControlName="name" placeholder="Enter product's name" required>
+    </div>
+    <div>
+      <label for="quantity">Quantity</label>
+      <input id="quantity" matInput formControlName="quantity" placeholder="Enter quantity" required>
+    </div>
+    <div>
+      <input type="submit" (click)="addProduct(productForm)" value="Add Product">
+    </div>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+table, tr, th, td {
+    border: 1px solid #aaa;
+    padding: 7px 15px;
+}
+
+form {
+    margin: 1em;
+}
+form input {
+    margin: .5em 0;
+}

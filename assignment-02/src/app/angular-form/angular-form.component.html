@@ -1,0 +1,38 @@
+<div>
+  <h2>Demonstration of Built-in directives and data binding</h2>
+  <br>
+  <h3>Product list</h3>
+  <table>
+    <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+    </tr>
+    <tr *ngFor="let data1 of product_arr; let indx = index">
+      <td>{{indx+1}}</td>
+      <td>{{data1.productName}}</td>
+      <td>{{data1.quantity}}</td>
+    </tr>
+  </table>
+  <form [formGroup]="productForm">
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field class="full-width">
+          <input matInput formControlName="productName" placeholder="Product Name">
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <p>Enter Quantity</p>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field class="full-width">
+          <input matInput formControlName="quantity" placeholder="Quantity">
+        </mat-form-field>
+      </div>
+
+      <div >
+          <button (click)="addProduct(productForm)" >Add Product</button>
+      </div>
+    
+    </div>
+  </form>
+</div>
