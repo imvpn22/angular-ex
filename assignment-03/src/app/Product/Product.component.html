@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Demonstration of Built-in directives and data binding</h2>
   <br/>
-  <h3>{{lastAdded}}</h3>
+  <h5 *ngIf="!!recentProduct">Recently added product: {{recentProduct.name}}, {{recentProduct.quantity}}</h5>
   <hr><br>
   <h5>Product list</h5>
   <table>

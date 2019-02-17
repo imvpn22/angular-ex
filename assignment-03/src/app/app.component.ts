@@ -21,13 +21,11 @@ export class AppComponent {
     'quantity': 109283
   }];
 
-  lastAdded = '';
+  recentProduct = {};
 
   addValue(val) {
     console.log('Parent component', val);
-    this.lastAdded = val.name;
+    this.recentProduct = val;
     this.product_arr.push(val);
   }
 }
-
-

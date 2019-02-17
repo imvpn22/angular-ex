@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, RequiredValidator, Form } from '@angular/forms';
 
-
 @Component({
   selector: 'app-product-component',
   templateUrl: './Product.component.html',
@@ -12,8 +11,7 @@ export class ProductComponent implements OnInit {
 
   @Output() onDataEntry: EventEmitter<any> = new EventEmitter<any>();
   @Input() product_arr: Array<any>;
-  @Input() lastAdded: String;
-  // product_arr = [];
+  @Input() recentProduct: String;
   productForm: FormGroup;
 
   constructor(
@@ -26,6 +24,7 @@ export class ProductComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log(this.recentProduct);
   }
 
   addProduct(productForm) {
@@ -33,5 +32,4 @@ export class ProductComponent implements OnInit {
     this.productForm.reset();
 
   }
-
 }
