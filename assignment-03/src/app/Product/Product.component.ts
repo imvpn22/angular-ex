@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 
 export class ProductComponent implements OnInit {
 
-  @Output() onDataEntry: EventEmitter<any> = new EventEmitter<any>();
+  @Output() DataEntry: EventEmitter<any> = new EventEmitter<any>();
   @Input() product_arr: Array<any>;
   @Input() recentProduct: String;
 
@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
 
   onSubmit() {
     console.log(this.model);
-    this.onDataEntry.emit({ ...this.model });
+    this.DataEntry.emit({ ...this.model });
 
     // Clear
     this.productFom.resetForm();

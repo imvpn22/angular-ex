@@ -3,7 +3,7 @@
 
 </router-outlet> -->
 <app-product-component
-        (onDataEntry)="addValue($event)"
-        [product_arr]= "product_arr"
-        [recentProduct] = "recentProduct"
-    ></app-product-component>
+    (DataEntry)="addValue($event)"
+    [product_arr]= "product_arr"
+    [recentProduct] = "recentProduct">
+</app-product-component>

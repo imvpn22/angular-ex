@@ -4,7 +4,7 @@
   <h5 *ngIf="!!recentProduct.name">Recently added product: {{recentProduct.name}}, {{recentProduct.quantity}}</h5>
   <hr><br>
   <h5>Product list</h5>
-  <table>
+<table class="table table-bordered table-hover col-sm-10">
     <tr>
       <th>Product ID</th>
       <th>Product Name</th>
@@ -20,21 +20,21 @@
   <br><hr>
 
   <h5>Add new product</h5>
-  <form name="productForm" #fr="ngForm" (ngSubmit)="fr.form.valid && onSubmit()">
-    <div>
-      <label for="name">Name</label>
-      <input name="name" placeholder="Enter product's name" required
-        [(ngModel)]="model.name" #name="ngModel"
-        [ngClass]="{ 'is-invalid': fr.submitted && name.invalid }" />
+<form class="form-horizontal col-sm-10" name="productForm" #fr="ngForm" (ngSubmit)="fr.form.valid && onSubmit()">
+    <div class="form-group">
+      <label class="control-label" for="name">Name</label>
+        <input class="form-control" type="text" name="name" placeholder="Enter product's name" required
+          [(ngModel)]="model.name" #name="ngModel"
+          [ngClass]="{ 'is-invalid': fr.submitted && name.invalid }" />
     </div>
-    <div>
-      <label for="quantity">Quantity</label>
-      <input name="quantity" placeholder="Enter quantity" required
+    <div class="form-group">
+      <label class="control-label" for="quantity">Quantity</label>
+      <input class="form-control" type="number" name="quantity" placeholder="Enter quantity" required
         [(ngModel)]="model.quantity" #quantity="ngModel"
         [ngClass]="{ 'is-invalid': fr.submitted && quantity.invalid }" />
     </div>
-    <div>
-      <input type="submit" value="Add Product">
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" value="Add Product">
     </div>
   </form>
 </div>
