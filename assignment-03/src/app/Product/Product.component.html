@@ -20,17 +20,21 @@
   <br><hr>
 
   <h5>Add new product</h5>
-  <form [formGroup]="productForm">
+  <form name="productForm" #fr="ngForm" (ngSubmit)="fr.form.valid && onSubmit()">
     <div>
       <label for="name">Name</label>
-      <input id="name" matInput formControlName="name" placeholder="Enter product's name" required>
+      <input name="name" placeholder="Enter product's name" required
+        [(ngModel)]="model.name" #name="ngModel"
+        [ngClass]="{ 'is-invalid': fr.submitted && name.invalid }" />
     </div>
     <div>
       <label for="quantity">Quantity</label>
-      <input id="quantity" matInput formControlName="quantity" placeholder="Enter quantity" required>
+      <input name="quantity" placeholder="Enter quantity" required
+        [(ngModel)]="model.quantity" #quantity="ngModel"
+        [ngClass]="{ 'is-invalid': fr.submitted && quantity.invalid }" />
     </div>
     <div>
-      <input type="submit" (click)="addProduct(productForm)" value="Add Product">
+      <input type="submit" value="Add Product">
     </div>
   </form>
 </div>

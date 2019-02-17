@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder, RequiredValidator, Form } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-product-component',
@@ -12,24 +12,22 @@ export class ProductComponent implements OnInit {
   @Output() onDataEntry: EventEmitter<any> = new EventEmitter<any>();
   @Input() product_arr: Array<any>;
   @Input() recentProduct: String;
-  productForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder
-  ) {
-    this.productForm = fb.group({
-      name: [null],
-      quantity: [null],
-    });
-   }
+  @ViewChild('fr') productFom: NgForm;
+
+  model: any = {};
+
+  constructor() {}
 
   ngOnInit() {
     // console.log(this.recentProduct);
   }
 
-  addProduct(productForm) {
-    this.onDataEntry.emit(productForm.value);
-    this.productForm.reset();
+  onSubmit() {
+    console.log(this.model);
+    this.onDataEntry.emit({ ...this.model });
 
+    // Clear
+    this.productFom.resetForm();
   }
 }

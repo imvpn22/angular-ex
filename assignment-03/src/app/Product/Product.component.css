@@ -9,3 +9,7 @@ form {
 form input {
     margin: .5em 0;
 }
+
+input.is-invalid {
+    border: 1px solid red;
+}
