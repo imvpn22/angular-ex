@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log(this.recentProduct);
+    // console.log(this.recentProduct);
   }
 
   addProduct(productForm) {
