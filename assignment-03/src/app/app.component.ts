@@ -1,4 +1,5 @@
 import { Component, Directive, ViewChild } from '@angular/core';
+
 import { ProductComponent } from './Product/Product.component';
 
 @Component({
@@ -20,7 +21,11 @@ export class AppComponent {
     'quantity': 109283
   }];
 
+  lastAdded = '';
+
   addValue(val) {
+    console.log('Parent component', val);
+    this.lastAdded = val.name;
     this.product_arr.push(val);
   }
 }
