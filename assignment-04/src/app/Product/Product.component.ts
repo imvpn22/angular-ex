@@ -1,0 +1,33 @@
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+@Component({
+  selector: 'app-product-component',
+  templateUrl: './Product.component.html',
+  styleUrls: ['./Product.component.css']
+})
+
+export class ProductComponent implements OnInit {
+
+  @Output() DataEntry: EventEmitter<any> = new EventEmitter<any>();
+  @Input() productArr: Array<any>;
+  @Input() recentProduct: String;
+
+  @ViewChild('fr') productFom: NgForm;
+
+  model: any = {};
+
+  constructor() {}
+
+  ngOnInit() {
+    // console.log(this.recentProduct);
+  }
+
+  onSubmit() {
+    console.log(this.model);
+    this.DataEntry.emit({ ...this.model });
+
+    // Clear
+    this.productFom.resetForm();
+  }
+}

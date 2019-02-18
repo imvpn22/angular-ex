@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Demonstration of Built-in directives and data binding</h2>
+  <hr>
+  <h5 *ngIf="!!recentProduct.name">Recently added product: {{recentProduct.name}}, {{recentProduct.quantity}}</h5>
+  <br>
+  <h5>Product list</h5>
+<table class="table table-bordered table-hover col-sm-10">
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Quantity</th>
+    </tr>
+<tr *ngFor="let data1 of productArr; let indx = index">
+      <td>{{indx+1}}</td>
+      <td>{{data1.name}}</td>
+      <td>{{data1.quantity}}</td>
+    </tr>
+  </table>
+  <hr>
+  <h5>Add new product</h5>
+<form class="form-horizontal col-sm-10" name="productForm" #fr="ngForm" (ngSubmit)="fr.form.valid && onSubmit()">
+    <div class="form-group">
+      <label class="control-label" for="name">Name</label>
+        <input class="form-control" type="text" name="name" placeholder="Enter product's name" required
+          [(ngModel)]="model.name" #name="ngModel"
+          [ngClass]="{ 'is-invalid': fr.submitted && name.invalid }" />
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="quantity">Quantity</label>
+      <input class="form-control" type="number" name="quantity" placeholder="Enter quantity" required
+        [(ngModel)]="model.quantity" #quantity="ngModel"
+        [ngClass]="{ 'is-invalid': fr.submitted && quantity.invalid }" />
+    </div>
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" value="Add Product">
+    </div>
+  </form>
+</div>

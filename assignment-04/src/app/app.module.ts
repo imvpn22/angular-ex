@@ -1,39 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA  } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatButtonModule, MatFormFieldModule, MatInputModule, MatCardModule, MatRadioModule, MatCheckboxModule, MatTableModule, MatExpansionModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFormComponent } from './angular-form/angular-form.component';
-import { AppService } from './app.service';
+import { ProductComponent } from './Product/Product.component';
+import { AppService} from './app.service';
 import { HttpModule } from '@angular/http';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AngularFormComponent
+    ProductComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    BrowserModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatRadioModule,
-    MatCheckboxModule,  
-    MatTableModule,
-    MatExpansionModule
+    HttpModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent],
   exports: [
-    AngularFormComponent 
+    ProductComponent
   ]
   // schemas: [NO_ERRORS_SCHEMA]
 })
